@@ -1,0 +1,1 @@
+{"version":3,"file":"consolidate.d.ts","sourceRoot":"","sources":["../../src/functions/consolidate.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,IAAI,EAAE,MAAM,SAAS,CAAC;AACpC,OAAO,KAAK,EAIV,cAAc,EACf,MAAM,aAAa,CAAC;AAErB,OAAO,EAAE,OAAO,EAAE,MAAM,gBAAgB,CAAC;AAwDzC,wBAAgB,2BAA2B,CACzC,GAAG,EAAE,IAAI,EACT,EAAE,EAAE,OAAO,EACX,QAAQ,EAAE,cAAc,GACvB,IAAI,CA4KN"}

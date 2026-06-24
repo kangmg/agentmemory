@@ -1,0 +1,1 @@
+{"version":3,"file":"compress-file.d.ts","sourceRoot":"","sources":["../../src/functions/compress-file.ts"],"names":[],"mappings":"AAGA,OAAO,KAAK,EAAE,IAAI,EAAE,MAAM,SAAS,CAAC;AACpC,OAAO,KAAK,EAAE,cAAc,EAAE,MAAM,aAAa,CAAC;AAClD,OAAO,KAAK,EAAE,OAAO,EAAE,MAAM,gBAAgB,CAAC;AAyF9C,wBAAgB,4BAA4B,CAC1C,GAAG,EAAE,IAAI,EACT,EAAE,EAAE,OAAO,EACX,QAAQ,EAAE,cAAc,GACvB,IAAI,CAyFN"}

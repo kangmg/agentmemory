@@ -1,0 +1,1 @@
+{"version":3,"file":"sliding-window.d.ts","sourceRoot":"","sources":["../../src/functions/sliding-window.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,IAAI,EAAE,MAAM,SAAS,CAAC;AACpC,OAAO,KAAK,EAGV,cAAc,EACf,MAAM,aAAa,CAAC;AAErB,OAAO,KAAK,EAAE,OAAO,EAAE,MAAM,gBAAgB,CAAC;AA4G9C,wBAAgB,6BAA6B,CAC3C,GAAG,EAAE,IAAI,EACT,EAAE,EAAE,OAAO,EACX,QAAQ,EAAE,cAAc,GACvB,IAAI,CAmJN"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"crystallize.d.ts","sourceRoot":"","sources":["../../src/functions/crystallize.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,IAAI,EAAE,MAAM,SAAS,CAAC;AACpC,OAAO,KAAK,EAAE,OAAO,EAAE,MAAM,gBAAgB,CAAC;AAE9C,OAAO,KAAK,EAA+B,cAAc,EAAE,MAAM,aAAa,CAAC;AAc/E,wBAAgB,2BAA2B,CACzC,GAAG,EAAE,IAAI,EACT,EAAE,EAAE,OAAO,EACX,QAAQ,EAAE,cAAc,GACvB,IAAI,CA+MN"}

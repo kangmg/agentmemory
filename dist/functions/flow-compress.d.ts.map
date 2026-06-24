@@ -1,0 +1,1 @@
+{"version":3,"file":"flow-compress.d.ts","sourceRoot":"","sources":["../../src/functions/flow-compress.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,IAAI,EAAE,MAAM,SAAS,CAAC;AACpC,OAAO,KAAK,EAAE,OAAO,EAAE,MAAM,gBAAgB,CAAC;AAE9C,OAAO,KAAK,EAAkC,cAAc,EAAE,MAAM,aAAa,CAAC;AAkBlF,wBAAgB,4BAA4B,CAC1C,GAAG,EAAE,IAAI,EACT,EAAE,EAAE,OAAO,EACX,QAAQ,EAAE,cAAc,GACvB,IAAI,CAuGN"}

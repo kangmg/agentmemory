@@ -1,0 +1,1 @@
+{"version":3,"file":"temporal-graph.d.ts","sourceRoot":"","sources":["../../src/functions/temporal-graph.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,IAAI,EAAE,MAAM,SAAS,CAAC;AACpC,OAAO,KAAK,EAMV,cAAc,EACf,MAAM,aAAa,CAAC;AAErB,OAAO,KAAK,EAAE,OAAO,EAAE,MAAM,gBAAgB,CAAC;AA6I9C,wBAAgB,8BAA8B,CAC5C,GAAG,EAAE,IAAI,EACT,EAAE,EAAE,OAAO,EACX,QAAQ,EAAE,cAAc,GACvB,IAAI,CA0QN"}

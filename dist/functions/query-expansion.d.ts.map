@@ -1,0 +1,1 @@
+{"version":3,"file":"query-expansion.d.ts","sourceRoot":"","sources":["../../src/functions/query-expansion.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,IAAI,EAAE,MAAM,SAAS,CAAC;AACpC,OAAO,KAAK,EAAE,cAAc,EAAkB,MAAM,aAAa,CAAC;AAmElE,wBAAgB,8BAA8B,CAC5C,GAAG,EAAE,IAAI,EACT,QAAQ,EAAE,cAAc,GACvB,IAAI,CA0DN;AAED,wBAAgB,wBAAwB,CAAC,KAAK,EAAE,MAAM,GAAG,MAAM,EAAE,CAwDhE"}

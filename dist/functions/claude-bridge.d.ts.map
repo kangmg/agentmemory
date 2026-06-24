@@ -1,0 +1,1 @@
+{"version":3,"file":"claude-bridge.d.ts","sourceRoot":"","sources":["../../src/functions/claude-bridge.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,IAAI,EAAE,MAAM,SAAS,CAAC;AAGpC,OAAO,KAAK,EAAU,kBAAkB,EAAE,MAAM,aAAa,CAAC;AAE9D,OAAO,KAAK,EAAE,OAAO,EAAE,MAAM,gBAAgB,CAAC;AAkE9C,wBAAgB,4BAA4B,CAC1C,GAAG,EAAE,IAAI,EACT,EAAE,EAAE,OAAO,EACX,MAAM,EAAE,kBAAkB,GACzB,IAAI,CAsFN"}

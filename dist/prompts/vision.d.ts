@@ -1,0 +1,2 @@
+export declare const VISION_DESCRIPTION_PROMPT = "Describe what this image shows in the context of software development. Extract:\n- What type of image this is (screenshot, diagram, mockup, terminal output, error, etc.)\n- Key entities visible (files, components, UI elements, error messages)\n- Relationships or flow shown\n- Any decisions, errors, or state visible\n- Text content visible in the image\n\nBe concise but preserve all technically relevant details. Output plain text, no XML.";
+//# sourceMappingURL=vision.d.ts.map
