@@ -84,6 +84,11 @@ describe("Codex plugin manifest (developers.openai.com/codex/plugins)", () => {
     // env interpolation must include defaults so Claude Code (and
     // any other MCP host that fails parse on unset ${VAR}) doesn't drop
     // the server silently when the user hasn't exported the var.
+    expect(mcp.mcpServers.agentmemory?.command).toBe("node");
+    expect(mcp.mcpServers.agentmemory?.args).toEqual([
+      "${CLAUDE_PLUGIN_ROOT}/scripts/mcp.mjs",
+    ]);
+    expect(existsSync(join(pluginRoot, "scripts/mcp.mjs"))).toBe(true);
     expect(mcp.mcpServers.agentmemory?.env?.AGENTMEMORY_URL).toMatch(
       /\$\{AGENTMEMORY_URL:-/,
     );

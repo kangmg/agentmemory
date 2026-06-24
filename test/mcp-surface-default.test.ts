@@ -53,9 +53,14 @@ describe("MCP tool surface default (#553)", () => {
   it("plugin .mcp.json provides default env interpolation so CC parse never fails (#510)", () => {
     const raw = readFileSync("plugin/.mcp.json", "utf-8");
     const cfg = JSON.parse(raw) as {
-      mcpServers: { agentmemory: { env: Record<string, string> } };
+      mcpServers: {
+        agentmemory: { command: string; args: string[]; env: Record<string, string> };
+      };
     };
-    const env = cfg.mcpServers.agentmemory.env;
+    const server = cfg.mcpServers.agentmemory;
+    expect(server.command).toBe("node");
+    expect(server.args).toEqual(["${CLAUDE_PLUGIN_ROOT}/scripts/mcp.mjs"]);
+    const env = server.env;
     // Per Claude Code MCP docs: ${VAR} without a default fails config
     // parse when VAR is unset, silently dropping the server. ${VAR:-x}
     // form is what unblocks fresh installs that haven't exported

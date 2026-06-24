@@ -291,6 +291,51 @@ describe("agentmemory connect — opencode adapter (#872)", () => {
   });
 });
 
+describe("agentmemory connect — codex adapter (mock filesystem)", () => {
+  let tmpHome: string;
+  let originalHome: string | undefined;
+  let originalUserprofile: string | undefined;
+
+  beforeEach(() => {
+    tmpHome = mkdtempSync(join(tmpdir(), "am-connect-"));
+    originalHome = process.env["HOME"];
+    originalUserprofile = process.env["USERPROFILE"];
+    process.env["HOME"] = tmpHome;
+    process.env["USERPROFILE"] = tmpHome;
+    vi.resetModules();
+  });
+
+  afterEach(() => {
+    if (originalHome !== undefined) process.env["HOME"] = originalHome;
+    else delete process.env["HOME"];
+    if (originalUserprofile !== undefined)
+      process.env["USERPROFILE"] = originalUserprofile;
+    else delete process.env["USERPROFILE"];
+    rmSync(tmpHome, { recursive: true, force: true });
+    vi.resetModules();
+  });
+
+  async function loadCodex(): Promise<ConnectAdapter> {
+    const mod = await import("../src/cli/connect/codex.js?t=" + Date.now());
+    return (mod as { adapter: ConnectAdapter }).adapter;
+  }
+
+  it("writes installed agentmemory mcp instead of registry @agentmemory/mcp", async () => {
+    require("node:fs").mkdirSync(join(tmpHome, ".codex"), { recursive: true });
+
+    const a = await loadCodex();
+    expect(a.detect()).toBe(true);
+
+    const result = await a.install({ dryRun: false, force: false });
+    expect(result.kind).toBe("installed");
+
+    const config = readFileSync(join(tmpHome, ".codex", "config.toml"), "utf-8");
+    expect(config).toContain('command = "agentmemory"');
+    expect(config).toContain('args = ["mcp"]');
+    expect(config).not.toContain("@agentmemory/mcp");
+  });
+});
+
 describe("agentmemory connect — copilot-cli adapter (mock filesystem)", () => {
   let tmpHome: string;
   let originalHome: string | undefined;

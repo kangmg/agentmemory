@@ -112,6 +112,9 @@ await bundle("src/cli.ts", "dist/cli.mjs", { executable: true });
 await bundle("src/mcp/standalone.ts", "dist/standalone.mjs", {
   executable: true,
 });
+await bundle("src/mcp/standalone.ts", "plugin/scripts/mcp.mjs", {
+  executable: true,
+});
 
 for (const entry of hookEntries) {
   const name = basename(entry, ".ts");
