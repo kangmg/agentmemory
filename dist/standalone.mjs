@@ -1174,6 +1174,10 @@ function forceProxy() {
   const raw = process.env["AGENTMEMORY_FORCE_PROXY"];
   return raw === "1" || raw === "true";
 }
+function forceLocal() {
+  const raw = process.env["AGENTMEMORY_FORCE_LOCAL"];
+  return raw === "1" || raw === "true";
+}
 var cached = null;
 var cachedAt = 0;
 var probeInFlight = null;
@@ -1224,6 +1228,12 @@ function invalidateHandle() {
 }
 async function resolveHandle() {
   const now = Date.now();
+  if (forceLocal()) {
+    const local = { mode: "local" };
+    cached = local;
+    cachedAt = now;
+    return local;
+  }
   if (cached) {
     if (cached.mode === "local" && now - cachedAt >= LOCAL_MODE_TTL_MS) {
       cached = null;

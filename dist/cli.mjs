@@ -80434,6 +80434,10 @@ function forceProxy() {
   const raw = process.env["AGENTMEMORY_FORCE_PROXY"];
   return raw === "1" || raw === "true";
 }
+function forceLocal() {
+  const raw = process.env["AGENTMEMORY_FORCE_LOCAL"];
+  return raw === "1" || raw === "true";
+}
 function resolveEnvOrEmpty(name) {
   const raw = process.env[name];
   if (!raw) return "";
@@ -80472,6 +80476,12 @@ function invalidateHandle() {
 }
 async function resolveHandle() {
   const now = Date.now();
+  if (forceLocal()) {
+    const local = { mode: "local" };
+    cached2 = local;
+    cachedAt = now;
+    return local;
+  }
   if (cached2) {
     if (cached2.mode === "local" && now - cachedAt >= LOCAL_MODE_TTL_MS) {
       cached2 = null;

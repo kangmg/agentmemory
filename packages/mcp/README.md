@@ -36,6 +36,12 @@ npx @agentmemory/agentmemory mcp
 
 Both commands do the same thing.
 
+By default, the shim proxies to `AGENTMEMORY_URL` when a running agentmemory
+server is reachable, then falls back to local JSON-backed storage. Set
+`AGENTMEMORY_FORCE_LOCAL=1` to skip the server probe and always use local
+fallback storage; combine it with `STANDALONE_PERSIST_PATH` when you want an
+MCP-client session to get an isolated memory file.
+
 ## Why does this package exist?
 
 The original plan in [issue #120](https://github.com/rohitg00/agentmemory/issues/120)

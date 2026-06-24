@@ -15,6 +15,11 @@ function forceProxy(): boolean {
   return raw === "1" || raw === "true";
 }
 
+function forceLocal(): boolean {
+  const raw = process.env["AGENTMEMORY_FORCE_LOCAL"];
+  return raw === "1" || raw === "true";
+}
+
 export interface ProxyHandle {
   mode: "proxy";
   baseUrl: string;
@@ -114,6 +119,12 @@ export function invalidateHandle(): void {
 
 export async function resolveHandle(): Promise<Handle> {
   const now = Date.now();
+  if (forceLocal()) {
+    const local: LocalHandle = { mode: "local" };
+    cached = local;
+    cachedAt = now;
+    return local;
+  }
   if (cached) {
     if (cached.mode === "local" && now - cachedAt >= LOCAL_MODE_TTL_MS) {
       cached = null;

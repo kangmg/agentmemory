@@ -28,6 +28,8 @@ describe("@agentmemory/mcp standalone — server proxy (issue #159)", () => {
     resetHandleForTests();
     globalThis.fetch = originalFetch;
     delete process.env["AGENTMEMORY_URL"];
+    delete process.env["AGENTMEMORY_FORCE_LOCAL"];
+    delete process.env["AGENTMEMORY_FORCE_PROXY"];
   });
 
   it("proxies memory_sessions to GET /agentmemory/sessions when server is up", async () => {
@@ -313,6 +315,23 @@ describe("@agentmemory/mcp standalone — server proxy (issue #159)", () => {
     } finally {
       delete process.env["AGENTMEMORY_FORCE_PROXY"];
     }
+  });
+
+  it("AGENTMEMORY_FORCE_LOCAL=1 skips livez probe and uses only local fallback", async () => {
+    process.env["AGENTMEMORY_FORCE_LOCAL"] = "1";
+    const fetchFn = installFetch((url) => {
+      throw new Error(`fetch should be skipped in force-local mode: ${url}`);
+    });
+    const localKv = new InMemoryKV(undefined);
+
+    await handleToolCall("memory_save", { content: "forced local memory" }, localKv);
+    const recall = await handleToolCall("memory_recall", { query: "forced" }, localKv);
+    const out = JSON.parse(recall.content[0].text);
+
+    expect(fetchFn).not.toHaveBeenCalled();
+    expect(out.mode).toBe("compact");
+    expect(out.results).toHaveLength(1);
+    expect(out.results[0].content).toBe("forced local memory");
   });
 
   it("logs probe failure to stderr so sandboxed clients can diagnose silently dropped tools", async () => {
