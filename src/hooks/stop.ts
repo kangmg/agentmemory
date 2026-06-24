@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 // Inlined — see src/hooks/sdk-guard.ts for canonical version. Kept local
-// per-hook so tsdown does not emit a shared hashed chunk that would churn
+// per-hook so the build does not emit a shared hashed chunk that would churn
 // the diff on every rebuild.
 function isSdkChildContext(payload: unknown): boolean {
   if (process.env["AGENTMEMORY_SDK_CHILD"] === "1") return true;

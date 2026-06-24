@@ -2,7 +2,7 @@
 import { resolveProject } from "./_project.js";
 
 // Inlined from ./sdk-guard so each hook bundles to a single self-contained
-// .mjs (matches the pattern used by every other hook entry in tsdown.config).
+// .mjs (matches the pattern used by every other hook entry in scripts/build.mjs).
 function isSdkChildContext(payload: unknown): boolean {
   if (process.env["AGENTMEMORY_SDK_CHILD"] === "1") return true;
   if (!payload || typeof payload !== "object") return false;
